@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- External CSS (carousel.css must come AFTER style.css) -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/extras.css">
+
+    <title>Projects | EarlAmores</title>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <a href="index.html" class="logo"><i class="fa-solid fa-laptop-code"></i>EarlAmores</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html" class="active">Projects</a>
+        </nav>
+    </header>
+
+
+    <!-- Projects Section -->
+    <section class="projects-page" id="projects">
+
+        <div class="projects-content">
+
+            <!-- Page Title -->
+            <h1>My <span>Projects</span></h1>
+
+            <p class="projects-intro">
+                Here are some of the projects I have worked on while studying
+                Information Technology. Hover to pause, then click a project
+                to view more.
+            </p>
+
+
+            <!-- Auto-scrolling Carousel  -->
+            <div class="carousel">
+                <div class="carousel-track">
+
+                    <!--  SET 1 (real cards)  -->
+                    <div class="carousel-set">
+
+                        <a class="project-box" href="#modal-cramwell" aria-label="View more about CramWell">
+                            <div class="project-image">
+                                <img src="images/project.png" alt="CramWell project screenshot">
+                            </div>
+                            <div class="project-info">
+                                <h2>CramWell</h2>
+                                <p class="project-summary">
+                                    A productivity web app that helps students and busy
+                                    individuals manage time, track deadlines, and build
+                                    better study habits.
+                                </p>
+                                <div class="project-skills">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>Java Script</span>
+                                </div>
+                                <p class="project-hint">View More <i class="fa-solid fa-arrow-right"></i></p>
+                            </div>
+                        </a>
+
+                        <a class="project-box" href="#modal-project2" aria-label="View more about upcoming project 2">
+                            <div class="project-image">
+                                <img src="images/temp2.png" alt="Placeholder for upcoming project 2">
+                            </div>
+                            <div class="project-info">
+                                <h2>Coming Soon</h2>
+                                <p class="project-summary">A new project will be added here soon.</p>
+                                <div class="project-skills">
+                                    <span>N/A</span>
+                                    <span>N/A</span>
+                                    <span>N/A</span>
+                                </div>
+                                <p class="project-hint">View More <i class="fa-solid fa-arrow-right"></i></p>
+                            </div>
+                        </a>
+
+                        <a class="project-box" href="#modal-project3" aria-label="View more about upcoming project 3">
+                            <div class="project-image">
+                                <img src="images/temp2.png" alt="Placeholder for upcoming project 3">
+                            </div>
+                            <div class="project-info">
+                                <h2>Coming Soon</h2>
+                                <p class="project-summary">
+                                    More projects will be added as I continue learning and
+                                    developing my skills.
+                                </p>
+                                <div class="project-skills">
+                                    <span>N/A</span>
+                                    <span>N/A</span>
+                                    <span>N/A</span>
+                                </div>
+                                <p class="project-hint">View More <i class="fa-solid fa-arrow-right"></i></p>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <!-- SET 2 (exact copy so the loop never shows a gap) -->
+                    <div class="carousel-set carousel-clone" aria-hidden="true">
+
+                        <a class="project-box" href="#modal-cramwell" tabindex="-1">
+                            <div class="project-image">
+                                <img src="images/project.png" alt="">
+                            </div>
+                            <div class="project-info">
+                                <h2>CramWell</h2>
+                                <p class="project-summary">
+                                    A productivity web app that helps students and busy
+                                    individuals manage time, track deadlines, and build
+                                    better study habits.
+                                </p>
+                                <div class="project-skills">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>Java Script</span>
+                                </div>
+                                <p class="project-hint">View More <i class="fa-solid fa-arrow-right"></i></p>
+                            </div>
+                        </a>
+
+                        <a class="project-box" href="#modal-project2" tabindex="-1">
+                            <div class="project-image">
+                                <img src="images/temp2.png" alt="">
+                            </div>
+                            <div class="project-info">
+                                <h2>Coming Soon</h2>
+                                <p class="project-summary">A new project will be added here soon.</p>
+                                <div class="project-skills">
+                                    <span>N/A</span>
+                                    <span>N/A</span>
+                                    <span>N/A</span>
+                                </div>
+                                <p class="project-hint">View More <i class="fa-solid fa-arrow-right"></i></p>
+                            </div>
+                        </a>
+
+                        <a class="project-box" href="#modal-project3" tabindex="-1">
+                            <div class="project-image">
+                                <img src="images/temp2.png" alt="">
+                            </div>
+                            <div class="project-info">
+                                <h2>Coming Soon</h2>
+                                <p class="project-summary">
+                                    More projects will be added as I continue learning and
+                                    developing my skills.
+                                </p>
+                                <div class="project-skills">
+                                    <span>N/A</span>
+                                    <span>N/A</span>
+                                    <span>N/A</span>
+                                </div>
+                                <p class="project-hint">View More <i class="fa-solid fa-arrow-right"></i></p>
+                            </div>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Details pop-up-->
+
+    <!-- CramWell (2 pictures with arrows) -->
+    <div class="modal" id="modal-cramwell">
+        <a class="modal-backdrop" href="#projects" aria-label="Close details"></a>
+
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="cramwell-title">
+            <a class="modal-close" href="#projects" aria-label="Close details">&times;</a>
+
+            <!-- Picture gallery. One radio + one slide per picture.
+                 To add a 3rd picture: add radio "cw-3", a 3rd slide, and
+                 point the arrows at the right radio ids. -->
+            <div class="project-image gallery">
+
+                <input type="radio" name="cw-pic" id="cw-1" checked aria-label="Show picture 1">
+                <input type="radio" name="cw-pic" id="cw-2" aria-label="Show picture 2">
+                <input type="radio" name="cw-pic" id="cw-3" aria-label="Show picture 3">
+                
+
+                <!-- Picture 1 -->
+                <div class="slide">
+                    <img src="images/project.png" alt="CramWell project screenshot 1">
+                    <label for="cw-3" class="gallery-arrow g-prev" aria-label="Previous picture"><i class="fa-solid fa-chevron-left"></i></label>
+                    <label for="cw-2" class="gallery-arrow g-next" aria-label="Next picture"><i class="fa-solid fa-chevron-right"></i></label>
+                    <span class="gallery-count">1 / 3</span>
+                </div>
+
+                <!-- Picture 2 -->
+                <div class="slide">
+                    <img src="images/cramwell1.png" alt="CramWell project screenshot 2">
+                    <label for="cw-1" class="gallery-arrow g-prev" aria-label="Previous picture"><i class="fa-solid fa-chevron-left"></i></label>
+                    <label for="cw-3" class="gallery-arrow g-next" aria-label="Next picture"><i class="fa-solid fa-chevron-right"></i></label>
+                    <span class="gallery-count">2 / 3</span>
+                </div>
+
+                <!-- Picture 3 -->
+                <div class="slide">
+                    <img src="images/cramwell2.png" alt="CramWell project screenshot 2">
+                    <label for="cw-2" class="gallery-arrow g-prev" aria-label="Previous picture"><i class="fa-solid fa-chevron-left"></i></label>
+                    <label for="cw-1" class="gallery-arrow g-next" aria-label="Next picture"><i class="fa-solid fa-chevron-right"></i></label>
+                    <span class="gallery-count">3 / 3</span>
+                </div>
+
+            </div>
+
+            <div class="project-info">
+                <h2 id="cramwell-title">1. CramWell</h2>
+                <p>
+                    CramWell is a productivity web app designed to help students and busy individuals manage their time,
+                    track deadlines, and build better study and work habits. This project was developed for our subject
+                    System Integration and Architecture 1, where we applied our knowledge of web development and system integration.
+                </p><br>
+
+                <p><strong style="color: #3498DB;">Team Members:</strong> Earl Vincent Amores, Airrah Cristine Virtucio, Blyth Ryan Nacilla</p>
+
+                <div class="project-skills">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>Java Script</span>
+                </div>
+
+                <a href="https://earlvincent69.github.io/CramWell/" class="btn project-btn" target="_blank" rel="noopener noreferrer">View Project</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Project 2 (single picture, no arrows) -->
+    <div class="modal" id="modal-project2">
+        <a class="modal-backdrop" href="#projects" aria-label="Close details"></a>
+
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="project2-title">
+            <a class="modal-close" href="#projects" aria-label="Close details">&times;</a>
+
+            <div class="project-image gallery">
+                <div class="slide">
+                    <img src="images/temp.png" alt="Placeholder for upcoming project 2">
+                </div>
+            </div>
+
+            <div class="project-info">
+                <h2 id="project2-title">2. Coming Soon</h2>
+                <p>A new project will be added here soon.</p>
+
+                <div class="project-skills">
+                    <span>N/A</span>
+                    <span>N/A</span>
+                    <span>N/A</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Project 3 (single picture, no arrows) -->
+    <div class="modal" id="modal-project3">
+        <a class="modal-backdrop" href="#projects" aria-label="Close details"></a>
+
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="project3-title">
+            <a class="modal-close" href="#projects" aria-label="Close details">&times;</a>
+
+            <div class="project-image gallery">
+                <div class="slide">
+                    <img src="images/temp.png" alt="Placeholder for upcoming project 3">
+                </div>
+            </div>
+
+            <div class="project-info">
+                <h2 id="project3-title">3. Coming Soon</h2>
+                <p>More projects will be added as I continue learning and developing my skills.</p>
+
+                <div class="project-skills">
+                    <span>N/A</span>
+                    <span>N/A</span>
+                    <span>N/A</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="contact">
+
+        <div class="footer-cta">
+            <h2>Get In <span>Touch</span></h2>
+            <p>
+                I am always open to learning opportunities, internships, and
+                collaborations. Feel free to reach out using the details below.
+            </p>
+        </div>
+
+        <div class="footer-grid">
+
+            <div class="footer-col">
+                <a href="index.html" class="footer-logo"><i class="fa-solid fa-laptop-code"></i>Earl Vincent Amores</a>
+                <p>Aspiring Full-Stack Developer<br>3rd-year BSIT Student</p>
+
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/earl-vincent-amores-b2a634380/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/earlVincent69" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://x.com/amores_earl" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/amores.earlvincent" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col footer-contact">
+                <h3>Contact</h3>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:amores.earlvincent@gmail.com">amores.earlvincent@gmail.com</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Philippines
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        <a href="resume.pdf" download>Download Resume</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 <span>Earl Vincent Amores</span>. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+</body>
+</html>
