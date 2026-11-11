@@ -1,0 +1,304 @@
+/* 
+   PROJECT CAROUSEL  (pure CSS, no JavaScript)
+   Load this AFTER style.css; it overrides the old
+   .projects-container / .project-box layout.
+    */
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    padding: 3rem 0;
+
+    /* soft fade on the left and right edges */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+/* loop */
+.carousel-track {
+    display: flex;
+    width: max-content;
+    animation: carousel-scroll 30s linear infinite;  
+}
+
+.carousel-set {
+    display: flex;
+    flex-shrink: 0;
+}
+
+@keyframes carousel-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* Pause on hover */
+.carousel:hover .carousel-track,
+.carousel:has(.project-box:focus-visible) .carousel-track {
+    animation-play-state: paused;
+}
+
+
+/* 
+   CARDS (now clickable links)
+    */
+
+.carousel .project-box {
+    flex: 0 0 42rem;
+    width: 42rem;
+    margin-right: 5rem;          
+    display: flex;
+    flex-direction: column;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel .project-box:hover,
+.carousel .project-box:focus-visible {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 0 40px #3498DB;
+}
+
+.carousel .project-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.carousel .project-skills {
+    margin-top: auto;
+    padding-top: 2rem;
+}
+
+.project-hint {
+    margin-top: 1.5rem;
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    color: #3498DB;
+}
+
+.project-hint i {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.project-box:hover .project-hint i {
+    transform: translateX(6px);
+}
+
+/* just a swipeable row */
+@media (prefers-reduced-motion: reduce) {
+    .carousel {
+        overflow-x: auto;
+    }
+    .carousel-track {
+        animation: none;
+    }
+    .carousel-clone {
+        display: none;
+    }
+}
+
+
+/* 
+   DETAILS POP-UP 
+    */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.modal:target {
+    display: flex;
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    cursor: default;
+}
+
+.modal-box {
+    position: relative;
+    width: 100%;
+    max-width: 85rem;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    background-color: black;
+    border: 2px solid #3498DB;
+    border-radius: 2rem;
+    box-shadow: 0 0 35px #3498DB;
+    animation: modal-in 0.25s ease;
+}
+
+@keyframes modal-in {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to   { opacity: 1; transform: none; }
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    z-index: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #3498DB;
+    font-size: 3.5rem;
+    line-height: 1;
+    transition: 0.3s ease;
+}
+
+.modal-close:hover {
+    color: white;
+    transform: scale(1.15);
+}
+
+/* keeps the floated "View Project" button inside the box */
+.modal .project-info {
+    display: flow-root;
+}
+
+.modal .project-skills {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+
+/* 
+   PICTURE GALLERY (radio-button trick)
+   One hidden radio per picture; the checked radio decides
+   which slide is visible. Arrows are <label>s that check
+   another radio.
+    */
+
+.modal .project-image.gallery {
+    position: relative;
+    height: auto;
+    background-color: #111;
+}
+
+/* hide the radios but keep them focusable for keyboard users */
+.gallery input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+}
+
+.gallery .slide {
+    display: none;
+    position: relative;
+    justify-content: center;
+}
+
+/* a gallery with a single picture just shows it */
+.gallery .slide:only-of-type {
+    display: flex;
+}
+
+/* show slide N when radio N is checked (supports up to 5 pictures) */
+.gallery input:nth-of-type(1):checked ~ .slide:nth-of-type(1),
+.gallery input:nth-of-type(2):checked ~ .slide:nth-of-type(2),
+.gallery input:nth-of-type(3):checked ~ .slide:nth-of-type(3),
+.gallery input:nth-of-type(4):checked ~ .slide:nth-of-type(4),
+.gallery input:nth-of-type(5):checked ~ .slide:nth-of-type(5) {
+    display: flex;
+}
+
+/* larger picture: shown whole, not cropped */
+.gallery .slide img {
+    width: 100%;
+    height: auto;
+    max-height: 50vh;
+    object-fit: contain;
+    display: block;
+}
+
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #3498DB;
+    border: 0.2rem solid #3498DB !important;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.gallery-arrow.g-prev { left: 1.5rem; }
+.gallery-arrow.g-next { right: 1.5rem; }
+
+.gallery-arrow:hover {
+    background-color: #3498DB;
+    color: black;
+    box-shadow: 0 0 20px #3498DB;
+    transform: translateY(-50%) scale(1.12);
+}
+
+.gallery-count {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.4rem 1.4rem;
+    background-color: rgba(0, 0, 0, 0.75);
+    border: 2px solid #3498DB;
+    border-radius: 2rem;
+    font-size: 1.3rem;
+    color: white;
+}
+
+
+/* 
+   MOBILE
+    */
+
+@media (max-width: 600px) {
+    .carousel .project-box {
+        flex-basis: 30rem;
+        width: 30rem;
+        margin-right: 3rem;
+    }
+
+    .gallery-arrow {
+        width: 4rem;
+        height: 4rem;
+        font-size: 1.6rem;
+    }
+
+    .modal .project-info {
+        padding: 2rem;
+    }
+}
